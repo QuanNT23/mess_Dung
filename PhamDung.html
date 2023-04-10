@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>L.O.C</title>
+  <style media="screen">
+  .message_container {
+    max-width: 1000px;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 45px;
+    }
+    span {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+    .message_screen {
+      padding: 15px 10px;
+    }
+    .bot_item {
+      margin-left: 35px;
+    }
+    audio{
+      width: 250px;
+    }
+    video{
+      margin-top:2px;
+      margin-bottom:2px;
+      max-width: 450px;
+    }
+    img {
+      margin-top:2px;
+      margin-bottom:2px;
+      width: 75%;
+      max-width: 450px;
+    }
+    .message__list {
+      padding: 0;
+      margin: 10px 0px 10px 0px;
+      list-style: none;
+      width: 100%;
+      position: relative;
+    }
+    .message__list:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .message__item {
+      max-width: 50%;
+      clear: both;
+    }
+    .message__item--bot {
+      float: left;
+    }
+    .message__item--bot:first-of-type .message {
+      border-top-left-radius: 20px;
+    }
+    .message__item--bot:last-of-type .message {
+      border-bottom-left-radius: 20px;
+    }
+    .message__item--user {
+      float: right;
+      text-align: right;
+    }
+    .message__item--user:first-of-type .message {
+      border-top-right-radius: 20px;
+    }
+    .message__item--user:last-of-type .message {
+      border-bottom-right-radius: 20px;
+    }
+    .message {
+      padding: 8px 15px;
+      margin-top:2px;
+      margin-bottom:2px;
+      display: inline-block;
+      text-align: left;
+      max-width: 440px;
+      overflow-wrap: break-word;
+    }
+    .message--bot {
+      background-color: #eee;
+      border-radius: 3px 20px 20px 3px;
+      margin-left: 35px;
+    }
+    .message--user {
+      background-color: #0baaff;
+      color: #fff;
+      border-radius: 20px 3px 3px 20px;
+    }
+    .bot__image {
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      bottom: 17px;
+      left: 0;
+      border-radius: 20px;
+    }
+    .sticker{
+      max-width: 180px;
+    }
+    .bot--timer {
+      padding-left: 45px;
+    }
+    .timer {
+      font-size: smaller;
+    }
+
+  </style>
+  </head>
+  <body>
+  <div class="message_container">
+    <div class="message_screen">
+      <div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hôm qua là bị ngáo ó</span>
+      <div class="timer">April 9, 2023 8:58 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Yêu vợ nhiều lắm chứ phải 🥺</span>
+      <div class="timer">April 9, 2023 8:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thế thì trả tiền đây để tí về mua cháo</span>
+      <div class="timer bot--timer">April 9, 2023 8:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ đi rồi chồng cũng sao mà sống tốt được nữa 😞</span>
+      <div class="timer">April 9, 2023 8:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Cả ngày chưa ăn gì rồi</span>
+      <div class="timer bot--timer">April 9, 2023 8:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ hôm nay vẫn phải làm bù hỏ</span>
+      <div class="timer">April 9, 2023 8:59 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Khi nào gần về đến nơi nói chồng</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng đặt ts cho nha</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nhận ik 🥺</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Coi như tha thứ cho chồng 🥺</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Đt sắp sập nguồn r</span>
+      <div class="timer bot--timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">ik mà 🥺</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Cx ko nhânk đc đâu</span>
+      <div class="timer bot--timer">April 9, 2023 9:00 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Ở đó chờ shipper đến là được</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nói vợ tên Dung là được mà</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nha</span>
+      <div class="timer">April 9, 2023 9:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Khi nào vợ áng tầm còn 10ph nữa</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nói chồng</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng đặt ts cho nha</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nhận ik 🥺</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Như là tha thứ cho chồng chuyện hôm qua với hôm nay 🥺</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nha 🥺</span>
+      <div class="timer">April 9, 2023 9:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nha bà xã 🥺😞</span>
+      <div class="timer">April 9, 2023 9:03 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã không tha thứ cho chồng nữa hả 😞</span>
+      <div class="timer">April 9, 2023 9:03 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã không nhận là không tha thứ cho chồng rồi 😞</span>
+      <div class="timer">April 9, 2023 9:05 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Không muốn ở bên chồng nữa rồi 😞</span>
+      <div class="timer">April 9, 2023 9:05 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 9:06 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">☹</span>
+      <div class="timer">April 9, 2023 9:07 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã không muốn ở bên chồng nữa rồi ☹</span>
+      <div class="timer">April 9, 2023 9:07 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thích thế à</span>
+      <div class="timer bot--timer">April 9, 2023 9:08 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Mà nói kiểu đấy</span>
+      <div class="timer bot--timer">April 9, 2023 9:08 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hông</span>
+      <div class="timer">April 9, 2023 9:08 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nhận đi mà ☹</span>
+      <div class="timer">April 9, 2023 9:08 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Không nhận là không yêu chồng nữa ☹</span>
+      <div class="timer">April 9, 2023 9:09 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Khi nào còn tầm 10 15 phút nhắn chồng</span>
+      <div class="timer">April 9, 2023 9:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng đặt cho nha</span>
+      <div class="timer">April 9, 2023 9:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhớ đó nha</span>
+      <div class="timer">April 9, 2023 9:13 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Rồi vợ đi về là cũng vừa tầm shipper mang đến</span>
+      <div class="timer">April 9, 2023 9:13 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Về r</span>
+      <div class="timer bot--timer">April 9, 2023 9:20 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Về ktx rồi á</span>
+      <div class="timer">April 9, 2023 9:20 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Chưa</span>
+      <div class="timer bot--timer">April 9, 2023 9:21 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ thế để chồng đặt</span>
+      <div class="timer">April 9, 2023 9:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ gần về ktx chưa</span>
+      <div class="timer">April 9, 2023 9:30 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Về r</span>
+      <div class="timer bot--timer">April 9, 2023 9:30 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Đang chờ</span>
+      <div class="timer bot--timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Đt còn 3 pt</span>
+      <div class="timer bot--timer">April 9, 2023 9:31 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Đang ở dưới ktx lun hỏ</span>
+      <div class="timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Tài xế lấy đơn rồi</span>
+      <div class="timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chắc tầm 5 10ph nữa đó</span>
+      <div class="timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ chờ lát nha 🥺</span>
+      <div class="timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đang trên đường rùi</span>
+      <div class="timer">April 9, 2023 9:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Có 2km thui đi cũng không lâu lắm đâu</span>
+      <div class="timer">April 9, 2023 9:32 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Ủa</span>
+      <div class="timer">April 9, 2023 9:37 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sao tự dưng bị huỷ</span>
+      <div class="timer">April 9, 2023 9:39 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Không hiểu luôn</span>
+      <div class="timer">April 9, 2023 9:39 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Không biết có ấn trúng cái gì không nữa</span>
+      <div class="timer">April 9, 2023 9:39 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đến chưa vợ</span>
+      <div class="timer">April 9, 2023 9:52 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi</span>
+      <div class="timer">April 9, 2023 10:08 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ở đâu z</span>
+      <div class="timer">April 9, 2023 10:09 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+          <a class="bot_item" href="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.1997-6/39178562_1505197616293642_5411344281094848512_n.png?stp=cp0_dst-png&_nc_cat=101&ccb=1-7&_nc_sid=ac3552&_nc_ohc=Qp337F9AlwIAX-jpiDA&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDRFDJZzSzt9-E--g7JtThneuBRfien7qBBkWqzQjTs_w&oe=6437A38B" target="_blank"><img class="sticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.1997-6/39178562_1505197616293642_5411344281094848512_n.png?stp=cp0_dst-png&_nc_cat=101&ccb=1-7&_nc_sid=ac3552&_nc_ohc=Qp337F9AlwIAX-jpiDA&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDRFDJZzSzt9-E--g7JtThneuBRfien7qBBkWqzQjTs_w&oe=6437A38B"></a>
+          <div class="timer bot--timer">April 9, 2023 10:12 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Nhận r</span>
+      <div class="timer bot--timer">April 9, 2023 10:12 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ</span>
+      <div class="timer">April 9, 2023 10:12 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Lâu chưa z hay mới</span>
+      <div class="timer">April 9, 2023 10:13 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+          <a class="bot_item" href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340254690_899503234642344_8637017695167200276_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=8C6mtxWDbzUAX-5ixXP&_nc_ht=scontent.fhan14-1.fna&oh=03_AdSuFBvOFRGsCZ6MS0MjTERVVSJC-xQc3gUclQm6Dt9R6g&oe=645ACC12" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340254690_899503234642344_8637017695167200276_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=8C6mtxWDbzUAX-5ixXP&_nc_ht=scontent.fhan14-1.fna&oh=03_AdSuFBvOFRGsCZ6MS0MjTERVVSJC-xQc3gUclQm6Dt9R6g&oe=645ACC12"></a>
+          <div class="timer bot--timer">April 9, 2023 10:13 PM</div></div><div class="message__item message__item--bot">
+          <a class="bot_item" href="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/340258268_1331995297383198_6188294956608765712_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ARt3-jJ4t94AX-Mr3W8&_nc_ht=scontent.fhan14-4.fna&oh=03_AdQ-O7_ZzfIQaVVsHTLr8XZVhY85nyYg_uC8-oBxTgp3ew&oe=645AE818" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/340258268_1331995297383198_6188294956608765712_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ARt3-jJ4t94AX-Mr3W8&_nc_ht=scontent.fhan14-4.fna&oh=03_AdQ-O7_ZzfIQaVVsHTLr8XZVhY85nyYg_uC8-oBxTgp3ew&oe=645AE818"></a>
+          <div class="timer bot--timer">April 9, 2023 10:13 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Lâu r</span>
+      <div class="timer bot--timer">April 9, 2023 10:13 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Mới về phòng</span>
+      <div class="timer bot--timer">April 9, 2023 10:13 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ</span>
+      <div class="timer">April 9, 2023 10:13 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nãy vợ với bạn đi đâu hỏ</span>
+      <div class="timer">April 9, 2023 10:14 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thấy bạn vợ nhắn cho chồng</span>
+      <div class="timer">April 9, 2023 10:14 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Vợ nhắn chớ ai 😒</span>
+      <div class="timer bot--timer">April 9, 2023 10:15 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ 🥺</span>
+      <div class="timer">April 9, 2023 10:15 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ mượn máy bạn hỏ</span>
+      <div class="timer">April 9, 2023 10:15 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:15 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Nãy đặt lần đầu thấy thông báo tài xế ở quán rùi</span>
+      <div class="timer">April 9, 2023 10:15 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sau chồng qua xem bên teams thầy nhắn</span>
+      <div class="timer">April 9, 2023 10:16 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Tiền ko Có mà mua ts đắt thế</span>
+      <div class="timer bot--timer">April 9, 2023 10:16 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Quay lại shoppe thấy bị huỷ</span>
+      <div class="timer">April 9, 2023 10:16 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế là phải đặt lại</span>
+      <div class="timer">April 9, 2023 10:16 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông biết có ấn nhầm đâu không nữa</span>
+      <div class="timer">April 9, 2023 10:16 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông đắt</span>
+      <div class="timer">April 9, 2023 10:16 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Bao nhiêu</span>
+      <div class="timer bot--timer">April 9, 2023 10:16 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Tình yêu thương vô bờ bến của chồng dành cho vợ 🥺</span>
+      <div class="timer">April 9, 2023 10:17 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 10:17 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Bao nhiu</span>
+      <div class="timer bot--timer">April 9, 2023 10:17 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Mà có ngon hong dạ bà xã iu dấu 🥺</span>
+      <div class="timer">April 9, 2023 10:18 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Nãy đứng nhìn anh shipper khoảng 5p mới dám lại hỏi</span>
+      <div class="timer bot--timer">April 9, 2023 10:18 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Ngon</span>
+      <div class="timer bot--timer">April 9, 2023 10:18 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ 🥺</span>
+      <div class="timer">April 9, 2023 10:19 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chắc anh gọi nhưng mà hết pin cũng nên</span>
+      <div class="timer">April 9, 2023 10:19 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế là anh ý đến rùi vợ thấy đó nhưng mà 5p mới lại hỏi hả vợ</span>
+      <div class="timer">April 9, 2023 10:19 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:20 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Vì vợ ko biết có phải ko</span>
+      <div class="timer bot--timer">April 9, 2023 10:20 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Xong thấy móc đt ra mở Zalo thấy avatar của vợ 🤣</span>
+      <div class="timer bot--timer">April 9, 2023 10:20 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ 🤣</span>
+      <div class="timer">April 9, 2023 10:20 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thui nhận được là được rùi 🤣</span>
+      <div class="timer">April 9, 2023 10:21 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340511192_1000402831123561_5587281594520755275_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=HgqRRasNPqsAX8vwbCl&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTz1MOpP-WmJ1bJeQppU3K54H6iYkfxrb_FT6GYYInoFQ&oe=645ACB8E" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340511192_1000402831123561_5587281594520755275_n.jpg?stp=dst-jpg_p480x480&_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=HgqRRasNPqsAX8vwbCl&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTz1MOpP-WmJ1bJeQppU3K54H6iYkfxrb_FT6GYYInoFQ&oe=645ACB8E"></a>
+          <div class="timer">April 9, 2023 10:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nà</span>
+      <div class="timer">April 9, 2023 10:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhìn mlem mlem vậy mà có từng này thui</span>
+      <div class="timer">April 9, 2023 10:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Quá lời lun đúng hong</span>
+      <div class="timer">April 9, 2023 10:21 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Sao có vị chua nhỉ</span>
+      <div class="timer bot--timer">April 9, 2023 10:22 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Tưởng có sữa chua</span>
+      <div class="timer bot--timer">April 9, 2023 10:22 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thế hỏ</span>
+      <div class="timer">April 9, 2023 10:22 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chắc họ bỏ sữa chua cũng nên</span>
+      <div class="timer">April 9, 2023 10:22 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:22 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Đây ts trân châu cacao mà nhỉ</span>
+      <div class="timer">April 9, 2023 10:22 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhưng mà chua là chua ngon hay là chua kiểu đồ đểu, đồ hết hạn...</span>
+      <div class="timer">April 9, 2023 10:23 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko biết nữa</span>
+      <div class="timer bot--timer">April 9, 2023 10:23 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Giống hết hạn</span>
+      <div class="timer bot--timer">April 9, 2023 10:23 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Z hả 😢</span>
+      <div class="timer">April 9, 2023 10:23 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko bt nữa</span>
+      <div class="timer bot--timer">April 9, 2023 10:24 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thế uống có được hông nè</span>
+      <div class="timer">April 9, 2023 10:25 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Để chồng còn đánh giá shop nữa</span>
+      <div class="timer">April 9, 2023 10:25 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Càng ngày càng chua kiểu hết hạn</span>
+      <div class="timer bot--timer">April 9, 2023 10:26 PM</div></div><div class="message__item message__item--bot">
+          <a class="bot_item" href="null" target="_blank"><img src="null"></a>
+          </div><div class="message__item message__item--bot">
+          <a href="null" target="_blank"><span class="message message--bot"></span></a>
+          <div class="timer bot--timer">April 9, 2023 10:26 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">😥</span>
+      <div class="timer bot--timer">April 9, 2023 10:26 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Uống đau bụng làm sao</span>
+      <div class="timer bot--timer">April 9, 2023 10:26 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic 😢</span>
+      <div class="timer">April 9, 2023 10:26 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hay là cuối ngày rồi nó hư 😢</span>
+      <div class="timer">April 9, 2023 10:26 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">😞</span>
+      <div class="timer bot--timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Lỡ cái quán này tiếc nên lấy lại đồ cũ hay sao đó 😢</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">😭</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Huhu 😭</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">😖</span>
+      <div class="timer bot--timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">À</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Hông dám uống nữa đâu</span>
+      <div class="timer bot--timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Nãy vợ chụp</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Ở cuối sao nó đen z</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hay là cái đó chua</span>
+      <div class="timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Mai đi làm mà đau bụng là mệt</span>
+      <div class="timer bot--timer">April 9, 2023 10:27 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ đã quấy đều lên chưa</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Cái cuối là đường đen thôi</span>
+      <div class="timer bot--timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Z hỏ</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hay là có sữa chua nhỉ</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hay là có nếp cẩm</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 10:28 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Sữa chua nó phải thơm</span>
+      <div class="timer bot--timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic thế sao chưa 😢</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Èo 😭</span>
+      <div class="timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Như cái này là có vị hư r</span>
+      <div class="timer bot--timer">April 9, 2023 10:28 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Huhu 😭</span>
+      <div class="timer">April 9, 2023 10:29 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Đúng luôn</span>
+      <div class="timer bot--timer">April 9, 2023 10:29 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Uống ngụm to là rõ vị hư</span>
+      <div class="timer bot--timer">April 9, 2023 10:29 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Chắc là cuối ngày nó hư rồi quán này tiếc nên không vứt đi mà lấy làm cũng nên 😭</span>
+      <div class="timer">April 9, 2023 10:29 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi hông uống nữa</span>
+      <div class="timer bot--timer">April 9, 2023 10:29 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thui đừng uống nữa</span>
+      <div class="timer">April 9, 2023 10:29 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Uống cx đc nhiều r ☹️</span>
+      <div class="timer bot--timer">April 9, 2023 10:30 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic hôm khác chồng né chỗ này</span>
+      <div class="timer">April 9, 2023 10:30 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thấy cũng đẹp mắt các thứ</span>
+      <div class="timer">April 9, 2023 10:30 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Mà sao lại z trời 😭</span>
+      <div class="timer">April 9, 2023 10:30 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Uống gần nửa r</span>
+      <div class="timer bot--timer">April 9, 2023 10:30 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic thui bỏ ik :&#039;(</span>
+      <div class="timer">April 9, 2023 10:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">May là nửa chứ mà hết là lại càng nguy hiểm hơn</span>
+      <div class="timer">April 9, 2023 10:31 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">😞</span>
+      <div class="timer bot--timer">April 9, 2023 10:31 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic mua ts chuộc lỗi mà lại như này ToT</span>
+      <div class="timer">April 9, 2023 10:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế là mới chuộc được nửa lỗi 🥺 ToT</span>
+      <div class="timer">April 9, 2023 10:31 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Mà nửa cũng nửa không tốt nữa ToT</span>
+      <div class="timer">April 9, 2023 10:32 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Nửa siu à :)</span>
+      <div class="timer bot--timer">April 9, 2023 10:32 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thui sau chồng đền cho cái khác 🥺</span>
+      <div class="timer">April 9, 2023 10:32 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hôm nay chưa chuộc lỗi được rùi ToT</span>
+      <div class="timer">April 9, 2023 10:32 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Huhu vợ hông tha lỗi cho chồng mất thui 🥺 ToT</span>
+      <div class="timer">April 9, 2023 10:32 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi hông sao</span>
+      <div class="timer bot--timer">April 9, 2023 10:33 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Này là tại quán chứ có phải tại chồng đâu</span>
+      <div class="timer bot--timer">April 9, 2023 10:33 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Sau chồng đền cho chỗ khác 🥺</span>
+      <div class="timer">April 9, 2023 10:33 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Dạ 🥺</span>
+      <div class="timer">April 9, 2023 10:33 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Úi chồng mới vào đọc cmt</span>
+      <div class="timer">April 9, 2023 10:33 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Èo thấy người thì nói quán làm sai món, người thì nói hư hỏng này kia</span>
+      <div class="timer">April 9, 2023 10:34 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Người thì nói nhạt nhẽo...</span>
+      <div class="timer">April 9, 2023 10:34 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Kệ ik</span>
+      <div class="timer bot--timer">April 9, 2023 10:36 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/338894937_1417891942356582_3225156504632129933_n.jpg?stp=dst-jpg_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=SSRMvqpKSMEAX9oIRTC&_nc_ht=scontent.fhan14-3.fna&oh=03_AdTy_32RyqH-YzU6n6DyfWx_vX0GzDbFOMDMd-OvIJbdwQ&oe=645AE97C" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/338894937_1417891942356582_3225156504632129933_n.jpg?stp=dst-jpg_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=SSRMvqpKSMEAX9oIRTC&_nc_ht=scontent.fhan14-3.fna&oh=03_AdTy_32RyqH-YzU6n6DyfWx_vX0GzDbFOMDMd-OvIJbdwQ&oe=645AE97C"></a>
+          <div class="timer">April 9, 2023 10:36 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hic</span>
+      <div class="timer">April 9, 2023 10:36 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thui sau né</span>
+      <div class="timer">April 9, 2023 10:36 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sau chồng đền cho cái khác nhá 🥺</span>
+      <div class="timer">April 9, 2023 10:37 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:37 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi 🥺</span>
+      <div class="timer">April 9, 2023 10:37 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ đổi lại ava ik 👉👈</span>
+      <div class="timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hay là nếu vợ thích cái nào đẹp đẹp thì mình cùng đổi sang cái mới 🥺</span>
+      <div class="timer">April 9, 2023 10:38 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">ik</span>
+      <div class="timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Sao hông đổi 🥺</span>
+      <div class="timer">April 9, 2023 10:38 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Giờ là bài test này</span>
+      <div class="timer bot--timer">April 9, 2023 10:39 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Chồng tìm cái ava nào vừa ý vợ thì sẽ đc để</span>
+      <div class="timer bot--timer">April 9, 2023 10:39 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ 🥺</span>
+      <div class="timer">April 9, 2023 10:40 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Tìm được cái mà vợ ưng rùi mình cùng để nha 🥺</span>
+      <div class="timer">April 9, 2023 10:40 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nha bà xã ;*</span>
+      <div class="timer">April 9, 2023 10:40 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:43 PM</div></div><div class="message__item message__item--bot">
+          <a class="bot_item" href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340177004_1305805343310776_672259512511013886_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ReHrPUUm3JAAX8C0VMu&_nc_ht=scontent.fhan14-1.fna&oh=03_AdT2Ze9zvgBD6-KZOQ8b6pxO6hRl_L-Rh_wtvqd0ZQ0oGg&oe=645ACC12" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340177004_1305805343310776_672259512511013886_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ReHrPUUm3JAAX8C0VMu&_nc_ht=scontent.fhan14-1.fna&oh=03_AdT2Ze9zvgBD6-KZOQ8b6pxO6hRl_L-Rh_wtvqd0ZQ0oGg&oe=645ACC12"></a>
+          <div class="timer bot--timer">April 9, 2023 10:43 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Anh út kiểu j thế</span>
+      <div class="timer bot--timer">April 9, 2023 10:43 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Vì gái bỏ em</span>
+      <div class="timer bot--timer">April 9, 2023 10:43 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Nãy nó kêu chồng vô đánh cup</span>
+      <div class="timer">April 9, 2023 10:43 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Mà chồng quên rep mất</span>
+      <div class="timer">April 9, 2023 10:43 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Hay 🙂🙂</span>
+      <div class="timer bot--timer">April 9, 2023 10:44 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Tình nghĩa anh em có chắc bền lâu</span>
+      <div class="timer bot--timer">April 9, 2023 10:44 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Chồng không đánh đâu</span>
+      <div class="timer">April 9, 2023 10:44 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhưng mà tự dưng quên rep</span>
+      <div class="timer">April 9, 2023 10:44 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Lúc đó lo nhắn với vợ</span>
+      <div class="timer">April 9, 2023 10:45 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/263358077_1088335098584386_268843217420296751_n.png?stp=dst-png_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=lIGZ2Cke4H4AX-pOChk&_nc_ht=scontent.fhan14-3.fna&oh=03_AdSdVtkvrav0iG3I5dVe5tavsU8CU9Astb8Ky_kIMgujgA&oe=645AE8B5" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/263358077_1088335098584386_268843217420296751_n.png?stp=dst-png_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=lIGZ2Cke4H4AX-pOChk&_nc_ht=scontent.fhan14-3.fna&oh=03_AdSdVtkvrav0iG3I5dVe5tavsU8CU9Astb8Ky_kIMgujgA&oe=645AE8B5"></a>
+          <div class="timer">April 9, 2023 10:48 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/313283752_1543277882780625_3118469721902164016_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=eXv8HTJj9jYAX_rliJq&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQKbeGMdBx1kr2SN7-xE2K5QkI_YXA1Nt_bZjnbnv7fww&oe=645ABF58" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/313283752_1543277882780625_3118469721902164016_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=eXv8HTJj9jYAX_rliJq&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQKbeGMdBx1kr2SN7-xE2K5QkI_YXA1Nt_bZjnbnv7fww&oe=645ABF58"></a>
+          <div class="timer">April 9, 2023 10:48 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông bà xã iu dấu 🥺</span>
+      <div class="timer">April 9, 2023 10:48 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko 👊</span>
+      <div class="timer bot--timer">April 9, 2023 10:48 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Bánh bèo</span>
+      <div class="timer bot--timer">April 9, 2023 10:48 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thế bà xã thích kiểu gì dạ</span>
+      <div class="timer">April 9, 2023 10:48 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Kiểu vẽ như này nha</span>
+      <div class="timer">April 9, 2023 10:49 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hay kiểu chụp</span>
+      <div class="timer">April 9, 2023 10:49 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Tự tìm</span>
+      <div class="timer bot--timer">April 9, 2023 10:49 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340175310_958995525284382_7060336858579051938_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=R7y6_4t0wmwAX-jbBTv&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTFvBJdjUtsfKp16FeFRWCIOBMc2uYnuIguJwpkYbeaAA&oe=645AE463" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340175310_958995525284382_7060336858579051938_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=R7y6_4t0wmwAX-jbBTv&_nc_ht=scontent.fhan14-1.fna&oh=03_AdTFvBJdjUtsfKp16FeFRWCIOBMc2uYnuIguJwpkYbeaAA&oe=645AE463"></a>
+          <div class="timer">April 9, 2023 10:50 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông</span>
+      <div class="timer">April 9, 2023 10:50 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 10:50 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko đc hun</span>
+      <div class="timer bot--timer">April 9, 2023 10:51 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/259346897_3087548751492315_4414601725171563752_n.png?stp=dst-png_p851x315&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=cpzQi1SzMNwAX_AJ4Bs&_nc_ht=scontent.fhan14-1.fna&oh=03_AdSzew9MdRNNRcicLLV95EdWsYvraFRixVYGdqTShbE9-w&oe=645AC02F" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/259346897_3087548751492315_4414601725171563752_n.png?stp=dst-png_p851x315&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=cpzQi1SzMNwAX_AJ4Bs&_nc_ht=scontent.fhan14-1.fna&oh=03_AdSzew9MdRNNRcicLLV95EdWsYvraFRixVYGdqTShbE9-w&oe=645AC02F"></a>
+          <div class="timer">April 9, 2023 10:51 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông</span>
+      <div class="timer">April 9, 2023 10:51 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Cắt đôi ra</span>
+      <div class="timer">April 9, 2023 10:51 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 10:52 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Xờ ấu</span>
+      <div class="timer bot--timer">April 9, 2023 10:52 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/262058337_1211127776078927_5463069306009283631_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=bAw9PHU6snMAX_aGGHv&_nc_ht=scontent.fhan14-3.fna&oh=03_AdShHN465kg-FJHEFWYvqcQ7qiMBzfE47C2RkbGa6tnRiA&oe=645ACA29" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/262058337_1211127776078927_5463069306009283631_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=bAw9PHU6snMAX_aGGHv&_nc_ht=scontent.fhan14-3.fna&oh=03_AdShHN465kg-FJHEFWYvqcQ7qiMBzfE47C2RkbGa6tnRiA&oe=645ACA29"></a>
+          <div class="timer">April 9, 2023 10:55 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/261124942_710838709893091_5154393590808982421_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=gs3DJUjzYw8AX-tt2F7&_nc_ht=scontent.fhan14-4.fna&oh=03_AdSTfB6pFa3zOgIeNgjOYlsRsGxgPfH0M-XAQWsA6eJftg&oe=645AB591" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/261124942_710838709893091_5154393590808982421_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=gs3DJUjzYw8AX-tt2F7&_nc_ht=scontent.fhan14-4.fna&oh=03_AdSTfB6pFa3zOgIeNgjOYlsRsGxgPfH0M-XAQWsA6eJftg&oe=645AB591"></a>
+          <div class="timer">April 9, 2023 10:55 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông</span>
+      <div class="timer">April 9, 2023 10:55 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Gửi ảnh này đây</span>
+      <div class="timer bot--timer">April 9, 2023 10:55 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Gửi thôi chớ hông đặt âu</span>
+      <div class="timer bot--timer">April 9, 2023 10:55 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">https://www.pinterest.com/pin/592927107174312445/</span>
+      <div class="timer">April 9, 2023 10:55 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">https://www.pinterest.com/pin/592927107174312448/</span>
+      <div class="timer">April 9, 2023 10:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông</span>
+      <div class="timer">April 9, 2023 10:56 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Gửi ảnh 👊👊👊👊</span>
+      <div class="timer bot--timer">April 9, 2023 10:56 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">https://i.pinimg.com/originals/0e/02/11/0e021138583e644bda5fb550fff4eedd.png</span>
+      <div class="timer">April 9, 2023 10:57 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ vào down cho nó giữ chất lượng á</span>
+      <div class="timer">April 9, 2023 10:58 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Qua mess nó bị vỡ</span>
+      <div class="timer">April 9, 2023 10:58 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">https://i.pinimg.com/originals/ff/08/7e/ff087e6cd1cab9e24de84664b3ec7913.png</span>
+      <div class="timer">April 9, 2023 10:58 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">2 cái này ấn vào là được</span>
+      <div class="timer">April 9, 2023 10:58 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vì chồng gửi link gốc rồi</span>
+      <div class="timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko tải đc</span>
+      <div class="timer bot--timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Ấn giữ vào ảnh á</span>
+      <div class="timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko đc</span>
+      <div class="timer bot--timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hông được á</span>
+      <div class="timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Ấn vào là nó có tự nhảy qua Chrome hông</span>
+      <div class="timer">April 9, 2023 10:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko</span>
+      <div class="timer bot--timer">April 9, 2023 11:00 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/339728379_1684094785357568_1021345297626375916_n.jpg?stp=dst-jpg_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=F8JVzOV1p1cAX9ZFrBa&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTlRNMC2mWdF_EL32fjlMCe94EhyWYALgTGAM4HXDqfGQ&oe=645AE0D2" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/339728379_1684094785357568_1021345297626375916_n.jpg?stp=dst-jpg_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=F8JVzOV1p1cAX9ZFrBa&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTlRNMC2mWdF_EL32fjlMCe94EhyWYALgTGAM4HXDqfGQ&oe=645AE0D2"></a>
+          <div class="timer">April 9, 2023 11:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Như chồng ấn vào nó tự nhảy qua</span>
+      <div class="timer">April 9, 2023 11:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế bên vợ như nào</span>
+      <div class="timer">April 9, 2023 11:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chắc là nó sẽ mở trong trình duyệt nhúng</span>
+      <div class="timer">April 9, 2023 11:00 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ xem có dấu 3 chấm hay gì đó rùi ấn mở bằng Chrome</span>
+      <div class="timer">April 9, 2023 11:00 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Đc gồi</span>
+      <div class="timer bot--timer">April 9, 2023 11:01 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Cái này trước chồng cũng bị vậy, xong phải vào cài đặt á</span>
+      <div class="timer">April 9, 2023 11:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Để chuyển thành mặc định mở trong Chrome</span>
+      <div class="timer">April 9, 2023 11:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bây giờ hông biết cái cài đặt đó ở đâu nữa</span>
+      <div class="timer">April 9, 2023 11:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ lấy ảnh làm gì dạ 👉👈</span>
+      <div class="timer">April 9, 2023 11:01 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng phải xem code của trang để lấy link ảnh gốc đó 😂</span>
+      <div class="timer">April 9, 2023 11:02 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chứ nãy chồng gửi phía trước là của Pinterest</span>
+      <div class="timer">April 9, 2023 11:02 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340205527_140710145437178_3348671393743976618_n.png?_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=p0xjltD-u34AX_N-iWY&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQdlY5Xtniqk2v_-tlGuCz57wnRBeeqUXGJvGK_sGrt1g&oe=645ACB24" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/340205527_140710145437178_3348671393743976618_n.png?_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=p0xjltD-u34AX_N-iWY&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQdlY5Xtniqk2v_-tlGuCz57wnRBeeqUXGJvGK_sGrt1g&oe=645ACB24"></a>
+          <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông vợ</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Này nữa</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ cũng chưa nói lun</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Bảo hông Hun r</span>
+      <div class="timer bot--timer">April 9, 2023 11:04 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">À dạ 🥺</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bạn đã đổi chủ đề thành Tình yêu 💕</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đã thêm 3 hiệu ứng từ ngữ cho Love ❤️</span>
+      <div class="timer">April 9, 2023 11:04 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bạn đã đặt biệt danh của mình là Ông Xã 🥺❤.</span>
+      <div class="timer">April 9, 2023 11:05 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bạn đã đặt biệt danh cho Phạm Dung là Bà Xã 🥺❤.</span>
+      <div class="timer">April 9, 2023 11:05 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Đưa mk fb đây</span>
+      <div class="timer bot--timer">April 9, 2023 11:10 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">thanhquan23122003@gmail.com</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Bà Xã 🥺❤ đã đặt cảm xúc nhanh thành 👊.</span>
+      <div class="timer bot--timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 11:10 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">quanboys2003</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">À</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hôm bị khoá</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đổi thành</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">quanboys2k3</span>
+      <div class="timer">April 9, 2023 11:10 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 11:11 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Ủa</span>
+      <div class="timer">April 9, 2023 11:11 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sao không đúng nhỉ</span>
+      <div class="timer">April 9, 2023 11:11 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chết rồi</span>
+      <div class="timer">April 9, 2023 11:11 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Quanboys2k3</span>
+      <div class="timer">April 9, 2023 11:13 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nha</span>
+      <div class="timer">April 9, 2023 11:13 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">thanhquan23122003@gmail.com</span>
+      <div class="timer">April 9, 2023 11:14 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Quanboys2k3</span>
+      <div class="timer">April 9, 2023 11:14 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ai hỏi đâu mà nói</span>
+      <div class="timer bot--timer">April 9, 2023 11:14 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ hỏi đó</span>
+      <div class="timer">April 9, 2023 11:14 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Hồi nào</span>
+      <div class="timer bot--timer">April 9, 2023 11:15 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Nà</span>
+      <div class="timer">April 9, 2023 11:17 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Hông</span>
+      <div class="timer bot--timer">April 9, 2023 11:20 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Của chồng đó</span>
+      <div class="timer">April 9, 2023 11:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ cần gì thì cứ vào</span>
+      <div class="timer">April 9, 2023 11:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng cho mà</span>
+      <div class="timer">April 9, 2023 11:21 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Cần gì là cần gì</span>
+      <div class="timer bot--timer">April 9, 2023 11:21 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thì nếu vợ cần thì vào</span>
+      <div class="timer">April 9, 2023 11:21 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Ò</span>
+      <div class="timer">April 9, 2023 11:23 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hellu</span>
+      <div class="timer">April 9, 2023 11:24 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">😂</span>
+      <div class="timer">April 9, 2023 11:25 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.1997-6/39178562_1505197616293642_5411344281094848512_n.png?stp=cp0_dst-png&_nc_cat=101&ccb=1-7&_nc_sid=ac3552&_nc_ohc=Qp337F9AlwIAX-jpiDA&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDRFDJZzSzt9-E--g7JtThneuBRfien7qBBkWqzQjTs_w&oe=6437A38B" target="_blank"><img class="sticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.1997-6/39178562_1505197616293642_5411344281094848512_n.png?stp=cp0_dst-png&_nc_cat=101&ccb=1-7&_nc_sid=ac3552&_nc_ohc=Qp337F9AlwIAX-jpiDA&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDRFDJZzSzt9-E--g7JtThneuBRfien7qBBkWqzQjTs_w&oe=6437A38B"></a>
+          <div class="timer">April 9, 2023 11:25 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">👊</span>
+      <div class="timer">April 9, 2023 11:25 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vọc vạch gì ó 🥺</span>
+      <div class="timer">April 9, 2023 11:26 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">👊</span>
+      <div class="timer">April 9, 2023 11:26 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/254920914_449353466809209_3511839368803778946_n.png?stp=dst-png_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=6iUuanLDhkMAX874Ty1&_nc_ht=scontent.fhan14-3.fna&oh=03_AdTwC6yp5kPciBo5M7CPPheQ6GMOOVN6Zz5w1cjjLUNznQ&oe=645AE12F" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/254920914_449353466809209_3511839368803778946_n.png?stp=dst-png_p480x480&_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=6iUuanLDhkMAX874Ty1&_nc_ht=scontent.fhan14-3.fna&oh=03_AdTwC6yp5kPciBo5M7CPPheQ6GMOOVN6Zz5w1cjjLUNznQ&oe=645AE12F"></a>
+          <div class="timer">April 9, 2023 11:28 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/259108286_620600398976256_4775632233759089571_n.png?stp=dst-png_p480x480&_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=vN47qdC_W3YAX9dCGic&_nc_ht=scontent.fhan14-2.fna&oh=03_AdQRyo7inmfc1a93BS172Y597uM29nH1FyM7SN6dDMVuBg&oe=645ACFE0" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/259108286_620600398976256_4775632233759089571_n.png?stp=dst-png_p480x480&_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=vN47qdC_W3YAX9dCGic&_nc_ht=scontent.fhan14-2.fna&oh=03_AdQRyo7inmfc1a93BS172Y597uM29nH1FyM7SN6dDMVuBg&oe=645ACFE0"></a>
+          <div class="timer">April 9, 2023 11:28 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Này được hông</span>
+      <div class="timer">April 9, 2023 11:28 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông đẹp</span>
+      <div class="timer">April 9, 2023 11:29 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Ui trời vào nick chồng rep lun ó</span>
+      <div class="timer">April 9, 2023 11:29 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Xem chồng có nhắn với em nào hông 🥺</span>
+      <div class="timer">April 9, 2023 11:29 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/258851267_966289230644783_6765422154573381744_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tnXjT3X2-cwAX9PPuA5&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTkgfPTKjR9o0GZAI__7-Qu9XLDl-0nbFKqHdQeQIH8DQ&oe=645ABC90" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/258851267_966289230644783_6765422154573381744_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tnXjT3X2-cwAX9PPuA5&_nc_ht=scontent.fhan14-2.fna&oh=03_AdTkgfPTKjR9o0GZAI__7-Qu9XLDl-0nbFKqHdQeQIH8DQ&oe=645ABC90"></a>
+          <div class="timer">April 9, 2023 11:32 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/258850178_296918042506357_4814043342818085703_n.png?stp=dst-png_p480x480&_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Ch5DX42LSAoAX8kBfe2&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQ2Gd8Dp5qf2leMpoYP7mlCx4L0Ra7fxSpWzRAhoQN8ZQ&oe=645AEB58" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/258850178_296918042506357_4814043342818085703_n.png?stp=dst-png_p480x480&_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Ch5DX42LSAoAX8kBfe2&_nc_ht=scontent.fhan14-1.fna&oh=03_AdQ2Gd8Dp5qf2leMpoYP7mlCx4L0Ra7fxSpWzRAhoQN8ZQ&oe=645AEB58"></a>
+          <div class="timer">April 9, 2023 11:32 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Được hông</span>
+      <div class="timer">April 9, 2023 11:32 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã ơi</span>
+      <div class="timer">April 9, 2023 11:38 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 9, 2023 11:39 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông</span>
+      <div class="timer">April 9, 2023 11:44 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Làm gì nick chồng đó 🥺</span>
+      <div class="timer">April 9, 2023 11:44 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Kệ tui</span>
+      <div class="timer">April 9, 2023 11:45 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Làm gì 🥺</span>
+      <div class="timer">April 9, 2023 11:45 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Kệ tui</span>
+      <div class="timer">April 9, 2023 11:45 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông nói hả</span>
+      <div class="timer">April 9, 2023 11:45 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông nói là hông yêu chồng nữa rồi 🥺☹️</span>
+      <div class="timer">April 9, 2023 11:45 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông 👊</span>
+      <div class="timer">April 9, 2023 11:46 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Kệ tui</span>
+      <div class="timer">April 9, 2023 11:46 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế đưa nick đây 🥺</span>
+      <div class="timer">April 9, 2023 11:47 PM</div></div><div class="message__item message__item--user">
+          <a href="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/336360011_227317416462281_5644173385999204005_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=j6E4klFSahgAX-6MPcj&_nc_ht=scontent.fhan14-2.fna&oh=03_AdRELAo5PF91lxK1ylmEthkl_vEDqzucLAQFDftM3INeUA&oe=645AB504" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/336360011_227317416462281_5644173385999204005_n.png?stp=dst-png_p480x480&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=j6E4klFSahgAX-6MPcj&_nc_ht=scontent.fhan14-2.fna&oh=03_AdRELAo5PF91lxK1ylmEthkl_vEDqzucLAQFDftM3INeUA&oe=645AB504"></a>
+          <div class="timer">April 9, 2023 11:48 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">được hông</span>
+      <div class="timer">April 9, 2023 11:48 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+          <a class="bot_item" href="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/340199445_971487294261917_4536902968207618292_n.jpg?stp=dst-jpg_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=MT6nZTjmXsMAX_Luaul&_nc_ht=scontent.fhan14-3.fna&oh=03_AdQfPYipPPCe0-0IF5pWYaRzZOzfqwGw6wnIpvSfReQINA&oe=645AD8C9" target="_blank"><img class="nonsticker" src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/340199445_971487294261917_4536902968207618292_n.jpg?stp=dst-jpg_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=MT6nZTjmXsMAX_Luaul&_nc_ht=scontent.fhan14-3.fna&oh=03_AdQfPYipPPCe0-0IF5pWYaRzZOzfqwGw6wnIpvSfReQINA&oe=645AD8C9"></a>
+          <div class="timer bot--timer">April 9, 2023 11:49 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Lâu rồi mà</span>
+      <div class="timer">April 9, 2023 11:50 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Với lại hồi trước chồng nhắn với ai cũng chúc ngủ ngon mơ đẹp</span>
+      <div class="timer">April 9, 2023 11:50 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Kể cả con trai luôn ý chứ</span>
+      <div class="timer">April 9, 2023 11:50 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">👊</span>
+      <div class="timer bot--timer">April 9, 2023 11:50 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hồi trước thế chớ sau này là thôi</span>
+      <div class="timer">April 9, 2023 11:51 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sau này có vợ rồi</span>
+      <div class="timer">April 9, 2023 11:51 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Tức là nhắn với nhiều người</span>
+      <div class="timer bot--timer">April 9, 2023 11:52 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hông</span>
+      <div class="timer">April 9, 2023 11:52 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Rồi có mỗi đứa này rep lại nên mới yêu đúng ko</span>
+      <div class="timer bot--timer">April 9, 2023 11:52 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Được có bạn này là quen cũng trong nhóm ôn thi</span>
+      <div class="timer">April 9, 2023 11:52 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Cái nhóm hồi trước đó</span>
+      <div class="timer">April 9, 2023 11:52 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhưng mà thi xong có mấy khi nhắn đâu</span>
+      <div class="timer">April 9, 2023 11:53 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Toàn bạn đó bắt chuyện trước rồi chồng rep</span>
+      <div class="timer">April 9, 2023 11:53 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Giờ thì có mỗi vợ thôi chứ đâu có ai 🥺</span>
+      <div class="timer">April 9, 2023 11:54 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thì người ta ko bắt chuyện mấy nên ko tiến tới chứ gì</span>
+      <div class="timer bot--timer">April 9, 2023 11:54 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Không</span>
+      <div class="timer">April 9, 2023 11:54 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đợt đó thích vợ rồi</span>
+      <div class="timer">April 9, 2023 11:54 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nên người ta nhắn thì mình rep thôi chớ cũng không có chủ động hay gì cả</span>
+      <div class="timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi</span>
+      <div class="timer bot--timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Nhắn cho vợ thôi chớ</span>
+      <div class="timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">.</span>
+      <div class="timer bot--timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ thử tua lên là biết ai nhắn trước liền mà</span>
+      <div class="timer">April 9, 2023 11:55 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Lúc đó mới tháng 6</span>
+      <div class="timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Quan trọng là cái cuối</span>
+      <div class="timer bot--timer">April 9, 2023 11:55 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Mà tận 2 tháng sau mình mới nói yêu nhau</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">À</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">:v</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng hồi đó toàn thế 🥲</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Sao với đây thì ko</span>
+      <div class="timer bot--timer">April 9, 2023 11:56 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Có mà</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Với vợ cũng thả cái đó</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Rồi nhiều khi thả tim nữa</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Mà toàn bị vợ mắng n</span>
+      <div class="timer">April 9, 2023 11:56 PM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nên sau không dám ấy chớ ☹</span>
+      <div class="timer">April 9, 2023 11:57 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Chắc thấy bn kia xinh quá ko dám nghĩ tới</span>
+      <div class="timer bot--timer">April 9, 2023 11:59 PM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thế là đi soi tin nhắn chồng rồi</span>
+      <div class="timer">April 9, 2023 11:59 PM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Rồi thấy đứa này xấu xấu bẩn bẩn nên xơi đc chứ gì</span>
+      <div class="timer bot--timer">April 9, 2023 11:59 PM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Xin lỗi</span>
+      <div class="timer bot--timer">April 10, 2023 12:00 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Này 😠</span>
+      <div class="timer">April 10, 2023 12:00 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nói linh tinh mắng cho đó ☹</span>
+      <div class="timer">April 10, 2023 12:02 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ là tuyệt vời nhất rồi mà 🥺</span>
+      <div class="timer">April 10, 2023 12:02 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Chả biết</span>
+      <div class="timer bot--timer">April 10, 2023 12:02 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">☹</span>
+      <div class="timer">April 10, 2023 12:03 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Có mỗi vợ thôi mà ☹</span>
+      <div class="timer">April 10, 2023 12:03 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ xem chồng có nhắn tin với gái đâu chứ ☹</span>
+      <div class="timer">April 10, 2023 12:03 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Có mỗi vợ thôi à ☹</span>
+      <div class="timer">April 10, 2023 12:03 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Hông biết</span>
+      <div class="timer bot--timer">April 10, 2023 12:04 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thui nào</span>
+      <div class="timer">April 10, 2023 12:04 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Nhắn mà còn dùng cái icon đó 🙄</span>
+      <div class="timer bot--timer">April 10, 2023 12:04 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hôn cái mà ;*</span>
+      <div class="timer">April 10, 2023 12:04 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi</span>
+      <div class="timer bot--timer">April 10, 2023 12:04 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hì hồi trước toàn thế chớ</span>
+      <div class="timer">April 10, 2023 12:05 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Icon xã giao ko cần 👊</span>
+      <div class="timer bot--timer">April 10, 2023 12:05 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hông</span>
+      <div class="timer">April 10, 2023 12:05 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng có mỗi vợ thôi mà ToT</span>
+      <div class="timer">April 10, 2023 12:05 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Kể ra cx nhiều em hỏi bài phết</span>
+      <div class="timer bot--timer">April 10, 2023 12:05 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Có mấy đâu</span>
+      <div class="timer">April 10, 2023 12:06 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Nhiều hơn bth</span>
+      <div class="timer bot--timer">April 10, 2023 12:06 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hồi trước còn có chớ sau này có mấy nữa đâu</span>
+      <div class="timer">April 10, 2023 12:07 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Gần như không luôn</span>
+      <div class="timer">April 10, 2023 12:07 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hồi năm ngoái</span>
+      <div class="timer">April 10, 2023 12:07 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chớ từ khi nghỉ hè xong sang năm 2 gần như không có luôn</span>
+      <div class="timer">April 10, 2023 12:07 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ò</span>
+      <div class="timer bot--timer">April 10, 2023 12:10 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi ngủ đây</span>
+      <div class="timer bot--timer">April 10, 2023 12:10 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Mai còn đi làm nữa</span>
+      <div class="timer bot--timer">April 10, 2023 12:10 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Chồng ngủ ngon</span>
+      <div class="timer bot--timer">April 10, 2023 12:10 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ có giận chồng hông đó 🥺</span>
+      <div class="timer">April 10, 2023 12:11 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Ko biết</span>
+      <div class="timer bot--timer">April 10, 2023 12:11 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Thui mà 🥺</span>
+      <div class="timer">April 10, 2023 12:11 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã 🥺</span>
+      <div class="timer">April 10, 2023 12:11 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng có mỗi bà xã thui mà 🥺</span>
+      <div class="timer">April 10, 2023 12:11 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Xin lỗi trc nha</span>
+      <div class="timer bot--timer">April 10, 2023 12:12 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Nhưng mà xem ra tình cảm dành cho crush cx nhiều chứ ko phải ít đâu nhỉ</span>
+      <div class="timer bot--timer">April 10, 2023 12:13 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Kệ ik ☹</span>
+      <div class="timer">April 10, 2023 12:13 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hồi trước mà</span>
+      <div class="timer">April 10, 2023 12:13 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bây giờ chả còn gì nữa cả</span>
+      <div class="timer">April 10, 2023 12:13 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hôm tổng kết về đó cũng là nhắn cho có lệ thôi chớ</span>
+      <div class="timer">April 10, 2023 12:13 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi</span>
+      <div class="timer bot--timer">April 10, 2023 12:14 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Với lại có copy trên mạng á 🥲</span>
+      <div class="timer">April 10, 2023 12:14 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Có lệ cái gì</span>
+      <div class="timer bot--timer">April 10, 2023 12:14 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Chứ không phải tự viết hết đâu</span>
+      <div class="timer">April 10, 2023 12:14 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Thôi</span>
+      <div class="timer bot--timer">April 10, 2023 12:14 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">☹</span>
+      <div class="timer">April 10, 2023 12:14 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">☹</span>
+      <div class="timer">April 10, 2023 12:14 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bây giờ có còn tí tình cảm nào nữa đâu chứ ☹</span>
+      <div class="timer">April 10, 2023 12:15 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Từ hồi còn đi học đã hết rồi</span>
+      <div class="timer">April 10, 2023 12:15 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Nhưng cảm giác mình chỉ là thay thế nó ko vui chút nào</span>
+      <div class="timer bot--timer">April 10, 2023 12:16 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Không phải</span>
+      <div class="timer">April 10, 2023 12:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thay thế đâu chứ</span>
+      <div class="timer">April 10, 2023 12:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Có phải là đổ vỡ với người ta rồi kiếm tạm một người bù vào đâu</span>
+      <div class="timer">April 10, 2023 12:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng yêu vợ thật lòng mà</span>
+      <div class="timer">April 10, 2023 12:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sao vợ lại nói là thay thế được chứ 😢</span>
+      <div class="timer">April 10, 2023 12:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ xem</span>
+      <div class="timer">April 10, 2023 12:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng hết tình cảm với người ta</span>
+      <div class="timer">April 10, 2023 12:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Một thời gian rất lâu rồi</span>
+      <div class="timer">April 10, 2023 12:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Rồi mới thích và yêu vợ</span>
+      <div class="timer">April 10, 2023 12:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chứ có phải là thất tình rồi kiếm tạm vợ để bù vào chỗ trống đâu chứ</span>
+      <div class="timer">April 10, 2023 12:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nói vậy oan chồng lắm chứ bộ 😭</span>
+      <div class="timer">April 10, 2023 12:19 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nói vậy khác gì bảo chồng không yêu thương vợ thật lòng 😭</span>
+      <div class="timer">April 10, 2023 12:19 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ nói vậy khác gì chồng là đứa tệ bạc đâu 😭</span>
+      <div class="timer">April 10, 2023 12:19 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng biết khi vợ đọc những tin nhắn đó vợ sẽ buồn</span>
+      <div class="timer">April 10, 2023 12:20 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhưng mà chồng chẳng có ai ngoài vợ nữa cả</span>
+      <div class="timer">April 10, 2023 12:21 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Quá khứ của chồng như vậy</span>
+      <div class="timer">April 10, 2023 12:21 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhưng mà chồng cũng chẳng còn tình cảm gì với người ta nữa cả</span>
+      <div class="timer">April 10, 2023 12:21 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vốn dĩ chồng không thích trêu đùa tình cảm</span>
+      <div class="timer">April 10, 2023 12:21 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vậy nên chồng có thể còn tình cảm với người này mà lại đi yêu người kia được ư ?</span>
+      <div class="timer">April 10, 2023 12:22 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng không còn gì với người ta một thời gian rất lâu</span>
+      <div class="timer">April 10, 2023 12:22 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Mới thích và yêu vợ</span>
+      <div class="timer">April 10, 2023 12:22 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bây giờ vợ lại nói chồng yêu vợ chỉ là thay thế 😭</span>
+      <div class="timer">April 10, 2023 12:22 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sao lại nói như thế chứ 😭</span>
+      <div class="timer">April 10, 2023 12:23 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng yêu thương vợ thật lòng mà 😭</span>
+      <div class="timer">April 10, 2023 12:23 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ 😢</span>
+      <div class="timer">April 10, 2023 12:27 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Đâu rồi 😢</span>
+      <div class="timer">April 10, 2023 12:28 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ 😢</span>
+      <div class="timer">April 10, 2023 12:32 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi 😢</span>
+      <div class="timer">April 10, 2023 12:37 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 10, 2023 12:38 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 10, 2023 12:41 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế thôi vậy ☹</span>
+      <div class="timer">April 10, 2023 12:42 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã ngủ ngon mơ đẹp</span>
+      <div class="timer">April 10, 2023 12:42 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã ngủ rồi không rep thế này đêm nay sao chồng ngủ được</span>
+      <div class="timer">April 10, 2023 12:43 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thôi chồng thức</span>
+      <div class="timer">April 10, 2023 12:43 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chứ bà xã thế này rồi chồng cũng chẳng ngủ được nữa đâu</span>
+      <div class="timer">April 10, 2023 12:43 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Trách chồng nói chồng rồi đi ngủ</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thì chồng chẳng ngủ được nữa đâu</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà xã ngủ ngon mơ đẹp</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng chờ bà xã dậy</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng yêu bà xã rất nhiều</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">😘❤</span>
+      <div class="timer">April 10, 2023 12:44 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 10, 2023 12:46 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 10, 2023 12:47 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Vợ mệt quá ngủ quên 😥</span>
+      <div class="timer bot--timer">April 10, 2023 5:14 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Vợ xin lỗi</span>
+      <div class="timer bot--timer">April 10, 2023 5:14 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ</span>
+      <div class="timer">April 10, 2023 5:14 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông sao mà</span>
+      <div class="timer">April 10, 2023 5:14 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Chưa ngủ luôn 😥</span>
+      <div class="timer bot--timer">April 10, 2023 5:15 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ chưa ạ</span>
+      <div class="timer">April 10, 2023 5:15 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">😥😞</span>
+      <div class="timer bot--timer">April 10, 2023 5:15 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Vợ xin lỗi</span>
+      <div class="timer bot--timer">April 10, 2023 5:16 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ hông sao mà</span>
+      <div class="timer">April 10, 2023 5:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng biết vợ cũng buồn, cũng có chút dỗi</span>
+      <div class="timer">April 10, 2023 5:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ mệt nữa nên ngủ quên</span>
+      <div class="timer">April 10, 2023 5:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng hông giận hay trách gì vợ đâu mà</span>
+      <div class="timer">April 10, 2023 5:16 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng bảo nè</span>
+      <div class="timer">April 10, 2023 5:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng yêu và thương vợ rất nhiều 🥺</span>
+      <div class="timer">April 10, 2023 5:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nhiều lắm luôn đó ☺️</span>
+      <div class="timer">April 10, 2023 5:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Và vợ cũng là người con gái duy nhất trong tim chồng đó ☺️</span>
+      <div class="timer">April 10, 2023 5:17 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ là tuyệt vời nhất</span>
+      <div class="timer">April 10, 2023 5:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Nên vợ đừng lo lắng hay là cảm thấy thiệt thòi hay gì cả nha ;*</span>
+      <div class="timer">April 10, 2023 5:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Chồng là của mình vợ</span>
+      <div class="timer">April 10, 2023 5:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Yêu thương mỗi mình vợ thui</span>
+      <div class="timer">April 10, 2023 5:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">;*</span>
+      <div class="timer">April 10, 2023 5:18 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi 🥺</span>
+      <div class="timer">April 10, 2023 5:23 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ lại ngủ rùi hả 🥺</span>
+      <div class="timer">April 10, 2023 5:45 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ưi 🥺</span>
+      <div class="timer">April 10, 2023 5:45 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Bà Xã 🥺❤ đã bỏ lỡ cuộc gọi của bạn.</span>
+      <div class="timer">April 10, 2023 5:48 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi dậy đi làm nào</span>
+      <div class="timer">April 10, 2023 6:19 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Vợ ơi</span>
+      <div class="timer">April 10, 2023 6:36 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">☹️</span>
+      <div class="timer bot--timer">April 10, 2023 7:01 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Ngủ nữa r</span>
+      <div class="timer bot--timer">April 10, 2023 7:01 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic</span>
+      <div class="timer">April 10, 2023 7:01 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Muộn làm rồi :&#039;(</span>
+      <div class="timer">April 10, 2023 7:01 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Sau nhớ bật chuông ik chớ</span>
+      <div class="timer">April 10, 2023 7:02 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hic</span>
+      <div class="timer">April 10, 2023 7:02 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">☹️</span>
+      <div class="timer bot--timer">April 10, 2023 7:02 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Mệt quá</span>
+      <div class="timer bot--timer">April 10, 2023 7:02 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">☹️</span>
+      <div class="timer bot--timer">April 10, 2023 7:02 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Hic</span>
+      <div class="timer">April 10, 2023 7:03 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hông dậy được hả :&#039;(</span>
+      <div class="timer">April 10, 2023 7:03 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 10, 2023 7:06 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">😢</span>
+      <div class="timer">April 10, 2023 7:06 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Thế hông đi làm được hả 😢</span>
+      <div class="timer">April 10, 2023 7:06 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Chết</span>
+      <div class="timer bot--timer">April 10, 2023 7:12 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Vợ lỡ share trên FB chồng r</span>
+      <div class="timer bot--timer">April 10, 2023 7:12 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">🤣</span>
+      <div class="timer bot--timer">April 10, 2023 7:12 AM</div></div><div class="message__item message__item--bot">
+      <span class="message message--bot">Quên mất</span>
+      <div class="timer bot--timer">April 10, 2023 7:12 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">🤣</span>
+      <div class="timer">April 10, 2023 7:13 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Ui trời</span>
+      <div class="timer">April 10, 2023 7:13 AM</div></div><div class="message__item message__item--user">
+      <span class="message message--user">Hoi hông sao</span>
+      <div class="timer">April 10, 2023 7:13 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Dạ</span>
+      <div class="timer bot--timer">April 10, 2023 7:18 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Vợ có đi làm nữa hông dạ</span>
+      <div class="timer">April 10, 2023 7:20 AM</div></div></div><div class="message__list"><img class="bot__image" src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-1/236382038_548196949761409_895791079863953325_n.jpg?stp=c0.1.80.79a_cp0_dst-jpg_p80x80&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=LHh3d2Kpo8cAX9NA5r1&_nc_ht=scontent.fhan14-4.fna&oh=00_AfAz4kH2VuBObrmVzUG2TVegMfN-8uCA8ICCzuhFj--lFQ&oe=6437BBB0"><div class="message__item message__item--bot">
+      <span class="message message--bot">Có</span>
+      <div class="timer bot--timer">April 10, 2023 7:23 AM</div></div></div><div class="message__list"><div class="message__item message__item--user">
+      <span class="message message--user">Dạ</span>
+      <div class="timer">April 10, 2023 7:26 AM</div></div>
+    </div>
+  </div>
+  </body>
+  </html>
